@@ -9,23 +9,18 @@
 #import "cheerboxViewController.h"
 #import "Cheer.h"
 
-@interface cheerboxViewController ()
 
-@end
 
 @implementation cheerboxViewController
 {
 }
-@synthesize cheers;
-@synthesize searchResults;
-@synthesize searchBar;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [searchResults count];
+        return [self.searchResults count];
     } else {
-        return [cheers count];
+        return [self.cheers count];
     }
 }
 
@@ -42,9 +37,9 @@
     // Grab the appropriate cheer
     Cheer *cheer = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cheer = [searchResults objectAtIndex: indexPath.row];
+        cheer = [self.searchResults objectAtIndex: indexPath.row];
     } else {
-        cheer = [cheers objectAtIndex:indexPath.row];
+        cheer = [self.cheers objectAtIndex:indexPath.row];
     }
     
     // Now configure the cell
@@ -59,7 +54,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    cheers = [NSArray arrayWithObjects:
+    self.cheers = [NSArray arrayWithObjects:
               [Cheer cheerOfTitle:@"Almost" description:@"With hands far apart, bring them rapidly together but miss just before meeting each other."],
               [Cheer cheerOfTitle:@"Archery" description:@"Shoot arrow and shout \"BULLS EYE.\""],
               [Cheer cheerOfTitle:@"Avon Lady Cheer" description:@"\"Dinnnnng! Donnnng!\""],
@@ -124,7 +119,7 @@
               [Cheer cheerOfTitle:@"Wolf Cheer" description:@"Wolf howl: \"Wooooooooooooooooooo!\""], nil];
 
     // Initialize the search results with a capacity equal to the total cheers' array capacity
-    self.searchResults = [NSMutableArray arrayWithCapacity:[cheers count]];
+    self.searchResults = [NSMutableArray arrayWithCapacity:[self.cheers count]];
     
     // reload the table
     [self.tableView reloadData];
@@ -143,7 +138,7 @@
     [self.searchResults removeAllObjects];
     // Filter the array using NSPredicate
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@",searchText];
-    searchResults = [NSMutableArray arrayWithArray:[cheers filteredArrayUsingPredicate:predicate]];
+    self.searchResults = [NSMutableArray arrayWithArray:[self.cheers filteredArrayUsingPredicate:predicate]];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
