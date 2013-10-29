@@ -22,6 +22,7 @@
 		C0C91DA6181E90CF00EF9698 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C91D85181E90CF00EF9698 /* UIKit.framework */; };
 		C0C91DAE181E90CF00EF9698 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0C91DAC181E90CF00EF9698 /* InfoPlist.strings */; };
 		C0C91DB0181E90CF00EF9698 /* CheerBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C91DAF181E90CF00EF9698 /* CheerBoxTests.m */; };
+		C0EB02EE18200C7B00B87625 /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EB02ED18200C7B00B87625 /* detailViewController.m */; };
 		C0F247C6181F28920098C847 /* Cheer.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F247C5181F28920098C847 /* Cheer.m */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		C0C91DAB181E90CF00EF9698 /* CheerBoxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CheerBoxTests-Info.plist"; sourceTree = "<group>"; };
 		C0C91DAD181E90CF00EF9698 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C0C91DAF181E90CF00EF9698 /* CheerBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheerBoxTests.m; sourceTree = "<group>"; };
+		C0EB02EC18200C7B00B87625 /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
+		C0EB02ED18200C7B00B87625 /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		C0F247C4181F28920098C847 /* Cheer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cheer.h; sourceTree = "<group>"; };
 		C0F247C5181F28920098C847 /* Cheer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cheer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				C0C91D9A181E90CF00EF9698 /* cheerboxViewController.m */,
 				C0C91D9C181E90CF00EF9698 /* Images.xcassets */,
 				C0C91D88181E90CF00EF9698 /* Supporting Files */,
+				C0EB02EC18200C7B00B87625 /* detailViewController.h */,
+				C0EB02ED18200C7B00B87625 /* detailViewController.m */,
 			);
 			path = CheerBox;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0EB02EE18200C7B00B87625 /* detailViewController.m in Sources */,
 				C0C91D92181E90CF00EF9698 /* cheerboxAppDelegate.m in Sources */,
 				C0F247C6181F28920098C847 /* Cheer.m in Sources */,
 				C0C91D8E181E90CF00EF9698 /* main.m in Sources */,
