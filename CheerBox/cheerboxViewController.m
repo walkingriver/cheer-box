@@ -156,7 +156,13 @@
 {
     NSLog(@"Shuffle pressed!");
     [self reloadCheers];
-    
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake) {
+        NSLog(@"Device Shaken!");
+        [self reloadCheers];
+    }
 }
 
 -(void)reloadCheers{
