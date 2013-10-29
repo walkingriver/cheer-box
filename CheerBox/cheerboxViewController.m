@@ -15,17 +15,31 @@
 {
 }
 
+-(NSArray*)getVisibleCheersFromTable:(UITableView*)tableView {
+    /// @description Determines which cheers list is visible.
+   
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return _searchResults;
+    } else {
+        return _cheers;
+    }
+}
+
+-(Cheer*)getSelectedCheerFromTableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    /// @description Grabs the selected cheer from the appropriate list.
+    Cheer *cheer = [[self getVisibleCheersFromTable:tableView] objectAtIndex:indexPath.row];
+    return cheer;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [self.searchResults count];
-    } else {
-        return [self.cheers count];
-    }
+    /// @description Called by the framework to retrieve the number of rows in the currently-visible list.
+    return [self getVisibleCheersFromTable:tableView].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /// @description Called by the framework to render a specific cell.
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -33,17 +47,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
-    // Grab the appropriate cheer
-    Cheer *cheer = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cheer = [self.searchResults objectAtIndex: indexPath.row];
-    } else {
-        cheer = [self.cheers objectAtIndex:indexPath.row];
-    }
-    
+      
     // Now configure the cell
-    cell.textLabel.text = cheer.title;
+    cell.textLabel.text =[self getSelectedCheerFromTableView:tableView cellForRowAtIndexPath:indexPath].title;
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
