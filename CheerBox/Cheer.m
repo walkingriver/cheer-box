@@ -18,6 +18,7 @@
     Cheer *newCheer = [[self alloc]init];
     newCheer.title = title;
     newCheer.description = description;
+    newCheer.order = arc4random();
     return newCheer;
 }
 @end

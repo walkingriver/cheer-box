@@ -48,9 +48,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
+    // Get the selected Cheer
+    Cheer* cheer = [self getSelectedCheerFromTableView:tableView
+                                 cellForRowAtIndexPath:indexPath];
       
     // Now configure the cell
-    cell.textLabel.text =[self getSelectedCheerFromTableView:tableView cellForRowAtIndexPath:indexPath].title;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%ld)", cheer.title, (long)cheer.order];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
@@ -59,6 +63,7 @@
 - (void)setupCheers
 {
 	// Do any additional setup after loading the view, typically from a nib.
+    self.cheers = nil;
     
     self.cheers = [NSArray arrayWithObjects:
                    [Cheer cheerOfTitle:@"Almost" description:@"With hands far apart, bring them rapidly together but miss just before meeting each other."],
@@ -123,6 +128,21 @@
                    [Cheer cheerOfTitle:@"Wave" description:@"As done at sports, stand, raise hand and cheer then sit as a wave around the room."],
                    [Cheer cheerOfTitle:@"Wave of applause" description:@"Lie Wave but clap on your turn."],
                    [Cheer cheerOfTitle:@"Wolf Cheer" description:@"Wolf howl: \"Wooooooooooooooooooo!\""], nil];
+    
+    [self sortCheers];
+}
+
+-(void)sortCheers{
+    NSArray *sortedArray;
+    
+    sortedArray = [_cheers sortedArrayUsingComparator:
+                    // Who else thinks this looks a lot like a lambda expression???
+                   ^NSComparisonResult(Cheer* obj1, Cheer* obj2) {
+                       return obj1.order > obj2.order;
+                   }
+                ];
+    
+    _cheers = sortedArray;
 }
 
 - (void)viewDidLoad

@@ -16,6 +16,7 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *description;
+@property (nonatomic) NSInteger order;
 
 + (id)cheerOfTitle:(NSString*)title
       description:(NSString*)description;

@@ -29,9 +29,6 @@
 	// Do any additional setup after loading the view.
     
     _cheerDetails.text = _cheer.description;
-//    _cheerDetails.numberOfLines = 0;
-//    _cheerDetails.lineBreakMode = NSLineBreakByWordWrapping;
-//    [_cheerDetails sizeToFit];
     
     [self setTitle:_cheer.title];
     
