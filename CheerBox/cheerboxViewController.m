@@ -17,10 +17,16 @@
 {
 }
 @synthesize cheers;
+@synthesize searchResults;
+@synthesize searchBar;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [cheers count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+    } else {
+        return [cheers count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -35,11 +41,15 @@
     
     // Grab the appropriate cheer
     Cheer *cheer = nil;
-    cheer = [cheers objectAtIndex:indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        cheer = [searchResults objectAtIndex: indexPath.row];
+    } else {
+        cheer = [cheers objectAtIndex:indexPath.row];
+    }
     
     // Now configure the cell
     cell.textLabel.text = cheer.title;
-    [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }
@@ -113,6 +123,9 @@
               [Cheer cheerOfTitle:@"Wave of applause" description:@"Lie Wave but clap on your turn."],
               [Cheer cheerOfTitle:@"Wolf Cheer" description:@"Wolf howl: \"Wooooooooooooooooooo!\""], nil];
 
+    // Initialize the search results with a capacity equal to the total cheers' array capacity
+    self.searchResults = [NSMutableArray arrayWithCapacity:[cheers count]];
+    
     // reload the table
     [self.tableView reloadData];
 }
@@ -121,5 +134,32 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be
+}
+
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    [self.searchResults removeAllObjects];
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.title contains[c] %@",searchText];
+    searchResults = [NSMutableArray arrayWithArray:[cheers filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 @end
