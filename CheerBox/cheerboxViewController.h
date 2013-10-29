@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface cheerboxViewController : UITableViewController <UITableViewDataSource,
-    UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface cheerboxViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (strong, nonatomic) NSArray *cheers;
 @property (strong, nonatomic) NSMutableArray *searchResults;

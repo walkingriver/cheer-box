@@ -157,4 +157,29 @@
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
+
+#pragma mark - TableView Delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // Perform a segue to the row detail
+    [self performSegueWithIdentifier:@"details" sender:tableView];
+}
+
+#pragma mark - Segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"details"]){
+        UIViewController *detailViewController = [segue destinationViewController];
+        
+        Cheer *cheer=nil;
+        
+        if (sender == self.searchDisplayController.searchResultsTableView) {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            cheer = [_searchResults objectAtIndex:[indexPath row]];
+        } else {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            cheer= [_cheers objectAtIndex:[indexPath row]];
+        }
+
+        [detailViewController setTitle:cheer.title];
+    }
+}
 @end
