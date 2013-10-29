@@ -148,13 +148,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
+    [self reloadCheers];
+}
 
+-(IBAction)shufflePressed:(UIBarButtonItem *)sender
+{
+    NSLog(@"Shuffle pressed!");
+    [self reloadCheers];
+    
+}
+
+-(void)reloadCheers{
     [self setupCheers];
     
     // Initialize the search results with a capacity equal to the total cheers' array capacity
     self.searchResults = [NSMutableArray arrayWithCapacity:[self.cheers count]];
-    
-    // reload the table
+
     [self.tableView reloadData];
 }
 
@@ -217,4 +227,5 @@
         controller.cheer = cheer;
     }
 }
+
 @end

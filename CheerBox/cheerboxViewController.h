@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSArray *cheers;
 @property (strong, nonatomic) NSMutableArray *searchResults;
 @property IBOutlet UISearchBar *searchBar;
+- (IBAction)shufflePressed:(UIBarButtonItem *)sender;
 
 @end

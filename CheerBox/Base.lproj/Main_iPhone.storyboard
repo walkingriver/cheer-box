@@ -38,7 +38,13 @@
                             <outlet property="delegate" destination="uI6-lw-Bp3" id="YQ2-EQ-HVm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cheer Box" id="iIY-xj-bYe"/>
+                    <navigationItem key="navigationItem" title="Cheer Box" id="iIY-xj-bYe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="WsE-kp-deM">
+                            <connections>
+                                <action selector="shufflePressed:" destination="uI6-lw-Bp3" id="fuZ-fP-tfu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="Vgl-s3-4Oi" id="GnF-1N-cH2"/>
                     </connections>
