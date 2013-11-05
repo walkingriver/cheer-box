@@ -18,7 +18,10 @@
 @property (nonatomic, copy) NSString *description;
 @property (nonatomic) NSInteger order;
 
++(NSArray*) getCheers;
+
 + (id)cheerOfTitle:(NSString*)title
       description:(NSString*)description;
 
+-(void)reorder;
 @end

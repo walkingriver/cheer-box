@@ -47,6 +47,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="Vgl-s3-4Oi" id="GnF-1N-cH2"/>
+                        <outlet property="tableView" destination="z8R-qL-Kqh" id="MO7-Zp-Vxv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O2w-wK-2o4" userLabel="First Responder" sceneMemberID="firstResponder"/>

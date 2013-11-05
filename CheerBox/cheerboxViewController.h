@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface cheerboxViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface cheerboxViewController : UIViewController <UITableViewDelegate,
+    UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (strong, nonatomic) NSArray *cheers;
 @property (strong, nonatomic) NSMutableArray *searchResults;
 @property IBOutlet UISearchBar *searchBar;
 - (IBAction)shufflePressed:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

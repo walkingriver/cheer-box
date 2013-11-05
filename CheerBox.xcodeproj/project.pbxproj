@@ -24,6 +24,7 @@
 		C0C91DB0181E90CF00EF9698 /* CheerBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C91DAF181E90CF00EF9698 /* CheerBoxTests.m */; };
 		C0EB02EE18200C7B00B87625 /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EB02ED18200C7B00B87625 /* detailViewController.m */; };
 		C0F247C6181F28920098C847 /* Cheer.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F247C5181F28920098C847 /* Cheer.m */; };
+		C0FE5F8A18204AF40000EAA1 /* iPadCheerboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FE5F8918204AF40000EAA1 /* iPadCheerboxViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6EC90D6FBD73413AAFCEC438 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C0C91D7E181E90CF00EF9698 /* CheerBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheerBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C91D81181E90CF00EF9698 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C0C91D83181E90CF00EF9698 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,6 +63,8 @@
 		C0EB02ED18200C7B00B87625 /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		C0F247C4181F28920098C847 /* Cheer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cheer.h; sourceTree = "<group>"; };
 		C0F247C5181F28920098C847 /* Cheer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cheer.m; sourceTree = "<group>"; };
+		C0FE5F8818204AF40000EAA1 /* iPadCheerboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadCheerboxViewController.h; sourceTree = "<group>"; };
+		C0FE5F8918204AF40000EAA1 /* iPadCheerboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadCheerboxViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				C0C91DA9181E90CF00EF9698 /* CheerBoxTests */,
 				C0C91D80181E90CF00EF9698 /* Frameworks */,
 				C0C91D7F181E90CF00EF9698 /* Products */,
+				6EC90D6FBD73413AAFCEC438 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +137,8 @@
 				C0C91D88181E90CF00EF9698 /* Supporting Files */,
 				C0EB02EC18200C7B00B87625 /* detailViewController.h */,
 				C0EB02ED18200C7B00B87625 /* detailViewController.m */,
+				C0FE5F8818204AF40000EAA1 /* iPadCheerboxViewController.h */,
+				C0FE5F8918204AF40000EAA1 /* iPadCheerboxViewController.m */,
 			);
 			path = CheerBox;
 			sourceTree = "<group>";
@@ -172,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0C91DB3181E90CF00EF9698 /* Build configuration list for PBXNativeTarget "CheerBox" */;
 			buildPhases = (
+				0696BFEB09B44E4583F8056E /* Check Pods Manifest.lock */,
 				C0C91D7A181E90CF00EF9698 /* Sources */,
 				C0C91D7B181E90CF00EF9698 /* Frameworks */,
 				C0C91D7C181E90CF00EF9698 /* Resources */,
+				AAFF26F2C2114AF3BC7E610B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,11 +268,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0696BFEB09B44E4583F8056E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AAFF26F2C2114AF3BC7E610B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C0C91D7A181E90CF00EF9698 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FE5F8A18204AF40000EAA1 /* iPadCheerboxViewController.m in Sources */,
 				C0EB02EE18200C7B00B87625 /* detailViewController.m in Sources */,
 				C0C91D92181E90CF00EF9698 /* cheerboxAppDelegate.m in Sources */,
 				C0F247C6181F28920098C847 /* Cheer.m in Sources */,
@@ -402,11 +445,16 @@
 		};
 		C0C91DB4181E90CF00EF9698 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EC90D6FBD73413AAFCEC438 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/callm031/Projects/cheer-box",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CheerBox/CheerBox-Prefix.pch";
 				INFOPLIST_FILE = "CheerBox/CheerBox-Info.plist";
@@ -418,11 +466,16 @@
 		};
 		C0C91DB5181E90CF00EF9698 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EC90D6FBD73413AAFCEC438 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/callm031/Projects/cheer-box",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CheerBox/CheerBox-Prefix.pch";
 				INFOPLIST_FILE = "CheerBox/CheerBox-Info.plist";
