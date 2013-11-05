@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Walking River Software. All rights reserved.
 //
 
+
+#include "Reachability.h";
 #import "Cheer.h"
 
 @implementation Cheer
@@ -27,8 +29,16 @@
 }
 
 +(NSArray*) getCheers {
-    NSArray *results = [self cheersFromWebService];
-    return results;
+    //1 - Is www.apple.com reachable?
+    Reachability *rConnection = [Reachability reachabilityWithHostName:@"www.apple.com"];
+    NetworkStatus s1 = [rConnection currentReachabilityStatus];
+    
+    if (s1) {
+        NSArray *results = [self cheersFromWebService];
+        return results;
+    }
+    
+    return [self cheersFromStaticData];
 }
 
 +(NSArray*) cheersFromWebService {

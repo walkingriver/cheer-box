@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0B4885818298D97004EA4BD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B4885718298D97004EA4BD /* SystemConfiguration.framework */; };
+		C0B4885B18299088004EA4BD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B4885A18299088004EA4BD /* Reachability.m */; };
 		C0C91D82181E90CF00EF9698 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C91D81181E90CF00EF9698 /* Foundation.framework */; };
 		C0C91D84181E90CF00EF9698 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C91D83181E90CF00EF9698 /* CoreGraphics.framework */; };
 		C0C91D86181E90CF00EF9698 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C91D85181E90CF00EF9698 /* UIKit.framework */; };
@@ -39,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		6EC90D6FBD73413AAFCEC438 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C0B4885718298D97004EA4BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C0B4885918299088004EA4BD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C0B4885A18299088004EA4BD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C0C91D7E181E90CF00EF9698 /* CheerBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheerBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C91D81181E90CF00EF9698 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C0C91D83181E90CF00EF9698 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B4885818298D97004EA4BD /* SystemConfiguration.framework in Frameworks */,
 				C0C91D84181E90CF00EF9698 /* CoreGraphics.framework in Frameworks */,
 				C0C91D86181E90CF00EF9698 /* UIKit.framework in Frameworks */,
 				C0C91D82181E90CF00EF9698 /* Foundation.framework in Frameworks */,
@@ -114,6 +120,7 @@
 		C0C91D80181E90CF00EF9698 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0B4885718298D97004EA4BD /* SystemConfiguration.framework */,
 				C0C91D81181E90CF00EF9698 /* Foundation.framework */,
 				C0C91D83181E90CF00EF9698 /* CoreGraphics.framework */,
 				C0C91D85181E90CF00EF9698 /* UIKit.framework */,
@@ -130,6 +137,8 @@
 				C0C91D93181E90CF00EF9698 /* Main_iPhone.storyboard */,
 				C0F247C4181F28920098C847 /* Cheer.h */,
 				C0F247C5181F28920098C847 /* Cheer.m */,
+				C0B4885918299088004EA4BD /* Reachability.h */,
+				C0B4885A18299088004EA4BD /* Reachability.m */,
 				C0C91D96181E90CF00EF9698 /* Main_iPad.storyboard */,
 				C0C91D99181E90CF00EF9698 /* cheerboxViewController.h */,
 				C0C91D9A181E90CF00EF9698 /* cheerboxViewController.m */,
@@ -309,6 +318,7 @@
 				C0FE5F8A18204AF40000EAA1 /* iPadCheerboxViewController.m in Sources */,
 				C0EB02EE18200C7B00B87625 /* detailViewController.m in Sources */,
 				C0C91D92181E90CF00EF9698 /* cheerboxAppDelegate.m in Sources */,
+				C0B4885B18299088004EA4BD /* Reachability.m in Sources */,
 				C0F247C6181F28920098C847 /* Cheer.m in Sources */,
 				C0C91D8E181E90CF00EF9698 /* main.m in Sources */,
 				C0C91D9B181E90CF00EF9698 /* cheerboxViewController.m in Sources */,
