@@ -21,11 +21,11 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dtP-gK-qPQ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dtP-gK-qPQ">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dtP-gK-qPQ" id="BSJ-8Y-Tz5">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -34,8 +34,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="uI6-lw-Bp3" id="7kb-aQ-k2l"/>
-                            <outlet property="delegate" destination="uI6-lw-Bp3" id="YQ2-EQ-HVm"/>
+                            <outlet property="dataSource" destination="uI6-lw-Bp3" id="C7p-X0-8J3"/>
+                            <outlet property="delegate" destination="uI6-lw-Bp3" id="hJk-1z-Inn"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cheer Box" id="iIY-xj-bYe">
@@ -46,11 +46,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adView" destination="us7-ei-eYx" id="n1n-9f-md3"/>
                         <outlet property="searchDisplayController" destination="Vgl-s3-4Oi" id="GnF-1N-cH2"/>
                         <outlet property="tableView" destination="z8R-qL-Kqh" id="MO7-Zp-Vxv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O2w-wK-2o4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="adView" id="us7-ei-eYx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="uI6-lw-Bp3" id="Bp2-SM-O5C"/>
+                    </connections>
+                </adBannerView>
                 <searchDisplayController id="Vgl-s3-4Oi">
                     <connections>
                         <outlet property="delegate" destination="uI6-lw-Bp3" id="KxE-2d-V9l"/>
@@ -93,6 +101,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IDR-W8-yLq"/>
                     <connections>
                         <outlet property="cheerDetails" destination="eMt-ju-uK0" id="U3u-ES-VwU"/>
                     </connections>

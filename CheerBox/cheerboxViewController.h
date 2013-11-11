@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
 @interface cheerboxViewController : UIViewController <UITableViewDelegate,
-    UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
+    UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate, ADBannerViewDelegate>
 
 @property (strong, nonatomic) NSArray *cheers;
 @property (strong, nonatomic) NSMutableArray *searchResults;
 @property IBOutlet UISearchBar *searchBar;
 - (IBAction)shufflePressed:(UIBarButtonItem *)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet ADBannerView *adView;
 
 @end
